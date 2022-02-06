@@ -75,11 +75,13 @@ main {
 }
 
 .card__image {
+  display: flex;
+  justify-content: center;
   width: 100%;
 }
 
 .card__image img {
-  width: 100%;
+  width: 80%;
 }
 
 .card__actions {

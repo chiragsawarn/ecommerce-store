@@ -1,19 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
-const rootDir = require('../utils/path');
-// const products = [];
+const products = [];
 
 router.get('/add-product',(req,res,next)=>{
-    console.log("Inside Add Product Form!");
-    res.sendFile(path.join(rootDir,'views','add-product.html'));
+    res.render('add-product',{docTitle:'Add Product', path:'/admin/add-product'});
 })
 
 router.post('/add-product',(req,res,next)=>{
-    // products.push({title:req.body.title});
+    products.push({title:req.body.title, price:req.body.price, desc:req.body.desc});
     console.log(JSON.parse(JSON.stringify(req.body)));
     res.redirect('/');
 });
 
-module.exports = router;
-// exports.products = products;
+exports.routes = router;
+exports.products = products;
