@@ -15,8 +15,9 @@ const postAddProduct = (req,res,next)=>{
 
 // Controllers for shop.js
 const getShop = (req,res,next)=>{
-    const products = Product.fetchAll();
-    res.render('shop',{docTitle:'Shop', products:products, path:'/'});
+    Product.fetchAll((products)=>{
+        res.render('shop',{docTitle:'Shop', products:products, path:'/'});
+    });
 }
 
 exports.getAddProduct = getAddProduct;
